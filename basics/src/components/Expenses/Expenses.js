@@ -6,7 +6,7 @@ import './Expenses.css';
 // JSX
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
-import ExpenseItem from './ExpenseItem';
+import ExpensesList from './ExpensesList';
 
 function Expenses( props ) {
     const [state, setState] = useState({
@@ -23,19 +23,6 @@ function Expenses( props ) {
         return expense.date.getFullYear().toString() === state.filteredYear;
     });
 
-    let expensesContent = <p>No expenses found.</p>;
-
-    if ( filteredExpenses.length > 0 ) {
-        expensesContent = filteredExpenses.map((expense) => (
-            <ExpenseItem 
-                amount={ expense.amount }
-                date={ expense.date }
-                key={ expense.id }
-                title={ expense.title }
-            />
-        ));
-    }
-
     return (
         <Card className="expenses">
             <ExpensesFilter 
@@ -43,7 +30,9 @@ function Expenses( props ) {
                 selected={ state.filteredYear }
             />
 
-            { expensesContent }
+            <ExpensesList
+                items={ filteredExpenses }
+            />
         </Card>
     );
 }
