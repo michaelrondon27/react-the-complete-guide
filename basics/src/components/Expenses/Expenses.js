@@ -29,8 +29,8 @@ function Expenses( props ) {
                 selected={ state.filteredYear }
             />
 
-            {props.item.map( expense => (
-                <Expense 
+            {props.items.map( expense => (
+                <ExpenseItem 
                     amount={ expense.amount }
                     date={ expense.date }
                     title={ expense.title }
