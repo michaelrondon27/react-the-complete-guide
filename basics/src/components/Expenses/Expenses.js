@@ -29,10 +29,11 @@ function Expenses( props ) {
                 selected={ state.filteredYear }
             />
 
-            {props.items.map( expense => (
+            {props.items.map((expense) => (
                 <ExpenseItem 
                     amount={ expense.amount }
                     date={ expense.date }
+                    key={ expense.id }
                     title={ expense.title }
                 />
             ))}
