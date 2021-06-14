@@ -4,6 +4,7 @@ import React from 'react';
 import classes from './AddUser.module.css'; 
 
 // JSX
+import Button from './../UI/Button';
 import Card from './../UI/Card';
 
 const AddUser = props => {
@@ -22,7 +23,7 @@ const AddUser = props => {
 
                 <input id="age" type="number"/>
 
-                <button type="submit">Add User</button>
+                <Button type="submit">Add User</Button>
             </form>
         </Card>
     );
