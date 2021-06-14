@@ -6,6 +6,7 @@ import classes from './AddUser.module.css';
 // JSX
 import Button from './../UI/Button';
 import Card from './../UI/Card';
+import ErrorModal from './../UI/ErrorModal';
 
 const AddUser = props => {
     const [enteredUsername, setEnteredUsername] = useState('');
@@ -37,27 +38,31 @@ const AddUser = props => {
     };
 
     return (
-        <Card className={ classes.input }>
-            <form onSubmit={ addUserHandler }>
-                <label htmlFor="username">Username</label>
-                <input 
-                    id="username" 
-                    onChange={ usernameChangeHandler }
-                    type="text"
-                    value={ enteredUsername }
-                />
+        <div>
+            <ErrorModal title="An error occured!" message="Something went wrong!"/>
+            
+            <Card className={ classes.input }>
+                <form onSubmit={ addUserHandler }>
+                    <label htmlFor="username">Username</label>
+                    <input 
+                        id="username" 
+                        onChange={ usernameChangeHandler }
+                        type="text"
+                        value={ enteredUsername }
+                    />
 
-                <label htmlFor="age">Age (Years)</label>
-                <input 
-                    id="age" 
-                    onChange={ ageChangeHandler }
-                    type="number" 
-                    value={ enteredAge }
-                />
+                    <label htmlFor="age">Age (Years)</label>
+                    <input 
+                        id="age" 
+                        onChange={ ageChangeHandler }
+                        type="number" 
+                        value={ enteredAge }
+                    />
 
-                <Button type="submit">Add User</Button>
-            </form>
-        </Card>
+                    <Button type="submit">Add User</Button>
+                </form>
+            </Card>
+        </div>
     );
 };
 
